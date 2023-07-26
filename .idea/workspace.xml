@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e19de63a-2ec7-44ac-8547-97530ebf82c4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Billing Report - 05_26_23.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CS_7310/Final/final.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TriumphPay/BillingReport2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/.idea/CS_7310.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/.idea/CS_7310.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/.ipynb_checkpoints/A2.thru.ch05-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/.ipynb_checkpoints/A2.thru.ch05-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/.ipynb_checkpoints/A4.RegexFilesExceptions-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/7310.a4/a4q10.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/7310.a4/a4q11.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/7310.a4/a4q12.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/7310.a4/a4q12b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/7310.a4/a4q12c.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/7310.a4/a4q9.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/A4.RegexFilesExceptions.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a5/A5.ch07.NumpyPandas.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/7310.a5/A5.ch07.NumpyPandas.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/A2.py" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/A2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/A2.thru.ch05.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/A2.thru.ch05.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/A3.thru.ch06.08.dict.sets.strings.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/A3.thru.ch06.08.dict.sets.strings.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/A4.py" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/A4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/A5.py" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/A5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/a1.Bryan.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS_7310/first.py" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/first.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TriumphPay/BillingReport.py" beforeDir="false" afterPath="$PROJECT_DIR$/TriumphPay/BillingReport.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2SZ1DVmrnq9DMTDTT4Zl1NGPPwd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/charlesbryan/Desktop/Python_Repo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="pytest in a3_coding2.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Python_Repo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CS_7311" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/CS_7311/a3_coding2.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.pytest in a3_coding2.py" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e19de63a-2ec7-44ac-8547-97530ebf82c4" name="Changes" comment="" />
+      <created>1689339171153</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689339171153</updated>
+      <workItem from="1689339174125" duration="9041000" />
+      <workItem from="1690332639683" duration="927000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Python_Repo$pytest_in_7311_A3_coding2_py.coverage" NAME="pytest in 7311.A3.coding2.py Coverage Results" MODIFIED="1689339557047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CS_7311" />
+    <SUITE FILE_PATH="coverage/Python_Repo$pytest_in_A3_coding2_py.coverage" NAME="pytest in A3.coding2.py Coverage Results" MODIFIED="1689340077650" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CS_7311" />
+    <SUITE FILE_PATH="coverage/Python_Repo$a3_coding2.coverage" NAME="a3_coding2 Coverage Results" MODIFIED="1689345699538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CS_7311" />
+    <SUITE FILE_PATH="coverage/Python_Repo$pytest_in_a3_coding2_py.coverage" NAME="pytest in a3_coding2.py Coverage Results" MODIFIED="1690332810942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CS_7311" />
+  </component>
+</project>

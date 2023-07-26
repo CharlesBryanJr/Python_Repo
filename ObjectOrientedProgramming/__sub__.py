@@ -1,0 +1,31 @@
+'''__sub__.py'''
+print(" ")
+
+class StoreItem:
+
+    TAX = 0.13
+
+    def __init__(self, name, price) -> None:
+        self.name = name
+        self.price = price
+        self.after_tax_price = 0
+        self.set_after_tax_price()
+    
+    def set_after_tax_price(self):
+        self.after_tax_price = round(self.price * (1 + self.TAX), 2)
+    
+    def __sub__(self, discount):
+        return StoreItem(self.name, self.price - discount)
+    
+    def __mul__(self, value):
+        return StoreItem(self.name, self.price * value)
+
+bread = StoreItem("Bread", 7)
+discounted_bread = bread - 2
+print(discounted_bread.after_tax_price)
+print(" ")
+
+discounted_bread = bread * 0.5
+print(discounted_bread.after_tax_price)
+
+print(" ")

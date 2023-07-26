@@ -1,0 +1,7 @@
+print(" ")
+print(round(3.4))
+print(round(3.5))
+print(round(3.6))
+print(" ")
+print(abs(-21))
+print(" ")
