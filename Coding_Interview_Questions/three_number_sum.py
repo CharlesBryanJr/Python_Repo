@@ -40,52 +40,70 @@ c = targetSum - a - b
 
 # Time: O(n^2) | # Space: O(n)
 def threeNumberSum(array, targetSum):
-    three_number_sum = []
     array.sort()
-
-    for idx in range(len(array) - 2):
-        num = array[idx]
-        left_idx = idx + 1
-        right_idx = len(array) - 1
-
-        while left_idx < right_idx:
-            left_num = array[left_idx]
-            right_num = array[right_idx]
-            current_sum = num + left_num + right_num
-            if current_sum == targetSum:
-                three_number_sum.append([num, left_num, right_num])
-                left_idx += 1
-                right_idx -= 1
-            elif current_sum < targetSum:
-                left_idx += 1
-            elif current_sum > targetSum:
-                right_idx -= 1
-
+    three_number_sum = []
+    for i in range(len(array) - 2):
+        left = i + 1
+        right = len(array) - 1
+        while left < right:
+            summation = array[i] + array[left] + array[right]
+            if summation == targetSum:
+                three_number_sum.append([array[i], array[left], array[right]])
+                left += 1
+                right -= 1
+            elif summation < targetSum:
+                left += 1
+            elif summation > targetSum:
+                right -= 1
     return three_number_sum
 
+def three_number_sum(array, targetSum):
+    array.sort()
+    triplets = []
+    for i in range(len(array)):
+        two_number_sum(i, triplets, array, targetSum)
+    return triplets
 
-array1 = [12, 3, 1, 2, -6, 5, -8, 6]
-targetSum1 = 0
-print("array1:", array1)
-print("targetSum1:", targetSum1)
-print(threeNumberSum(array1, targetSum1))
+def two_number_sum(i, triplets, array, targetSum):
+    left = i + 1
+    right = len(array) - 1
+    while left < right:
+        summation = array[i] + array[left] + array[right]
+        if summation == targetSum:
+            triplets.append([array[i], array[left], array[right]])
+            left += 1
+            right -= 1
+        elif summation < targetSum:
+            left += 1
+        elif summation > targetSum:
+            right -= 1
+    return triplets
+
+
+array = [12, 3, 1, 2, -6, 5, -8, 6]
+targetSum = 0
+print("array:", array)
+print("targetSum:", targetSum)
+print(threeNumberSum(array, targetSum))
+print(three_number_sum(array, targetSum))
 print(" ")
 
-array2 = [1, 2, 3]
-targetSum2 = 6
-print("array2:", array2)
-print("targetSum2:", targetSum2)
-print(threeNumberSum(array2, targetSum2))
+array = [1, 2, 3]
+targetSum = 6
+print("array:", array)
+print("targetSum:", targetSum)
+print(threeNumberSum(array, targetSum))
+print(three_number_sum(array, targetSum))
 print(" ")
 
-array3 = [8, 10, -2, 49, 14]
-targetSum3 = 57
-print("array3:", array3)
-print("targetSum3:", targetSum3)
-print(threeNumberSum(array3, targetSum3))
+array = [8, 10, -2, 49, 14]
+targetSum = 57
+print("array:", array)
+print("targetSum:", targetSum)
+print(threeNumberSum(array, targetSum))
+print(three_number_sum(array, targetSum))
 print(" ")
 
 
 # _recursion
 # _iteration
-print(" ")
