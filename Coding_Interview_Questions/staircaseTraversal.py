@@ -239,16 +239,8 @@ height = 1
 maxSteps = 1
 print("height:", height)
 print("maxSteps:", maxSteps)
-print("staircaseTraversal_k_to_the_n:",
-      staircaseTraversal_k_to_the_n(height, maxSteps))
-print("staircaseTraversal_k_n_recursion:",
-      staircaseTraversal_k_n_recursion(height, maxSteps))
-print("staircaseTraversal_k_n_iteration:",
-      staircaseTraversal_k_n_iteration(height, maxSteps))
+print("staircaseTraversal_k_to_the_n:", staircaseTraversal_k_to_the_n(height, maxSteps))
+print("staircaseTraversal_k_n_recursion:", staircaseTraversal_k_n_recursion(height, maxSteps))
+print("staircaseTraversal_k_n_iteration:", staircaseTraversal_k_n_iteration(height, maxSteps))
 print("staircaseTraversal_n:", staircaseTraversal(height, maxSteps))
-print(" ")
-
-
-# _recursion
-# _iteration
 print(" ")

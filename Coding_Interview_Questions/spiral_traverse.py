@@ -112,25 +112,33 @@ Output(array): spiral_array
 
 # Time: O(n) | # Space: O(n)
 def spiral_traverse_iteration(array):
-    spiral_array = []
+    result = []
+    start_row, end_row = 0, len(array) - 1
+    start_col, end_col = 0, len(array[0]) - 1
 
-    start_row = 0
-    end_row = len(array) - 1
-    start_col = 0
-    end_col = len(array[0]) - 1
+    while start_col <= end_col and start_row <= end_row:
+        for col in range(start_col, end_col + 1):
+            result.append(array[start_row][col])
 
-    while start_row <= end_row and start_col <= end_col:
-        traverse_right(array, spiral_array, start_col, end_col, start_row, end_row)
-        traverse_down(array, spiral_array, start_col, end_col, start_row, end_row)
-        traverse_left(array, spiral_array, start_col, end_col, start_row, end_row)
-        traverse_up(array, spiral_array, start_col, end_col, start_row, end_row)
+        for row in range(start_row + 1, end_row + 1):
+            result.append(array[row][end_col])
+
+        for col in reversed(range(start_col, end_col)):
+            if start_row == end_row:
+                break
+            result.append(array[end_row][col])
+
+        for row in reversed(range(start_row + 1, end_row)):
+            if start_col == end_col:
+                break
+            result.append(array[row][start_col])
 
         start_row += 1
         end_row -= 1
         start_col += 1
         end_col -= 1
 
-    return spiral_array
+    return result
 
 
 '''
@@ -159,19 +167,6 @@ call the recursion helper function
 Output(array): spiral_array
 	# a one dimensional array in spiral order
 '''
-
-# Time: O(n) | # Space: O(n)
-
-
-def spiral_traverse_recursion(array):
-    spiral_array = []
-    start_row = 0
-    end_row = len(array) - 1
-    start_col = 0
-    end_col = len(array[0]) - 1
-    spiral_traverse(array, start_row, end_row, start_col, end_col, spiral_array)
-    return spiral_array
-
 
 '''
 Recursion Helper Function
@@ -205,7 +200,7 @@ traverse the perimeter of the array
         - end_row -= 1
         - start_column += 1
         - end_column -= 1
-    
+
     call the recursion helper function
     # will solve smaller instances of the same problem
     # iterate/traverse until the function can return a value
@@ -213,49 +208,50 @@ traverse the perimeter of the array
     - spiral_traverse(array, start_row, end_row, start_col, end_col, spiral_array)
 '''
 
+# Time: O(n) | # Space: O(n)
+def spiral_traverse_recursion(array):
+    result = []
+    start_row, end_row = 0, len(array) - 1
+    start_col, end_col = 0, len(array[0]) - 1
+    spiral_traverse(array, start_row, end_row, start_col, end_col, result)
+    return result
 
-def spiral_traverse(array, start_row, end_row, start_col, end_col, spiral_array):
+
+def spiral_traverse(array, start_row, end_row, start_col, end_col, result):
     if start_row > end_row or start_col > end_col:
         return
-
-    traverse_right(array, spiral_array, start_col, end_col, start_row, end_row)
-    traverse_down(array, spiral_array, start_col, end_col, start_row, end_row)
-    traverse_left(array, spiral_array, start_col, end_col, start_row, end_row)
-    traverse_up(array, spiral_array, start_col, end_col, start_row, end_row)
-
-    start_row += 1
-    end_row -= 1
-    start_col += 1
-    end_col -= 1
-    spiral_traverse(array, start_row, end_row, start_col, end_col, spiral_array)
+    traverse_right(array, start_col, end_col + 1, start_row, result)
+    traverse_down(array, start_row + 1, end_row + 1, end_col, result)
+    if start_row != end_row:
+        traverse_left(array, start_col, end_col - 1, end_row, result)
+    if start_col != end_col:
+        traverse_up(array, start_row + 1, end_row, start_col, result)
+    return spiral_traverse(array, start_row + 1, end_row - 1, start_col + 1, end_col - 1, result)
 
 
-def traverse_right(array, spiral_array, start_col, end_col, start_row, end_row):
-    for col in range(start_col, end_col + 1):
-        num = array[start_col][col]
-        spiral_array.append(num)
-
-
-def traverse_down(array, spiral_array, start_col, end_col, start_row, end_row):
-    for row in range(start_row + 1, end_row + 1):
-        num = array[row][end_col]
-        spiral_array.append(num)
-
-
-def traverse_left(array, spiral_array, start_col, end_col, start_row, end_row):
-    if start_row == end_row:
+def traverse_right(array, col, end_col, row, result):
+    if col >= end_col:
         return
-    for col in reversed(range(start_col, end_col)):
-        num = array[end_row][col]
-        spiral_array.append(num)
+    result.append(array[row][col])
+    return traverse_right(array, col + 1, end_col, row, result)
 
-
-def traverse_up(array, spiral_array, start_col, end_col, start_row, end_row):
-    if start_col == end_col:
+def traverse_down(array, row, end_row, col, result):
+    if row >= end_row:
         return
-    for row in reversed(range(start_row + 1, end_row)):
-        num = array[row][start_col]
-        spiral_array.append(num)
+    result.append(array[row][col])
+    return traverse_down(array, row + 1, end_row, col, result)
+
+def traverse_left(array, start_col, col, row, result):
+    if col <= start_col:
+        return
+    result.append(array[row][col])
+    return traverse_left(array, start_col, col - 1, row, result)
+
+def traverse_up(array, start_row, row, col, result):
+    if row < start_row:
+        return
+    result.append(array[row][col])
+    return traverse_up(array, start_row, row - 1, col, result)
 
 
 array = [[1, 2, 3, 4],
