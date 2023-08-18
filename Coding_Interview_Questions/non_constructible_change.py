@@ -45,18 +45,13 @@ Output: the minimum sum of money that you can NOT create
 
 # O(nlog(n)) time | O(1) space
 def nonConstructibleChange(coins):
-    if len(coins) == 0:
-        return 1
     coins.sort()
-    change_created = 0
-
+    current_change = 0
     for coin in coins:
-        if coin > change_created + 1:
-            return change_created + 1
-
-        change_created += coin
-
-    return change_created + 1
+        if coin > current_change + 1:
+            return current_change + 1
+        current_change += coin
+    return current_change + 1
 
 
 coins = [5, 7, 1, 1, 2, 3, 22]
@@ -76,4 +71,3 @@ print(" ")
 
 # _recursion
 # _iteration
-print(" ")
