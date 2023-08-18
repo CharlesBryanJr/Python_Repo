@@ -7,6 +7,7 @@
 # pylint: disable=W0105
 # pylint: disable=C0304
 # pylint: disable=C0200
+# pylint: disable=E101
 print(" ")
 
 '''
@@ -43,67 +44,43 @@ Output:
 - empty array if no two ints sum up to the target sum
 '''
 
+
 # O(n^2) time | O(1) space
 def two_number_sum_n_n(array, target_sum):
-    two_number_sum_array = []
-
-    for i in range(len(array)):
-        num1 = array[i]
-        for ii in range(len(array)):
-            num2 = array[ii]
-            if num1 + num2 != target_sum:
-                continue
-            if i == ii:
-                continue
-            two_number_sum_array.append(num1)
-            two_number_sum_array.append(num2)
-            return two_number_sum_array
-
+    for i in range(len(array) - 1):
+        for ii in range(i + 1, len(array)):
+            if array[i] + array[ii] == target_sum:
+                return [array[i], array[ii]]
     return []
+
 
 # O(n) time | O(n) space
 def twoNumberSum_n(array, targetSum):
-    two_number_sum_array = []
-    two_number_sum_dict = {}
-
-    for idx in range(len(array)):
-        num1 = array[idx]
-        two_number_sum_dict[num1] = idx
-
-    for idx in range(len(array)):
-        num1 = array[idx]
-        num2 = targetSum - num1
-        if num2 not in two_number_sum_dict:
-            continue
-        num2_idx = two_number_sum_dict[num2]
-        if num2_idx == idx:
-            continue
-        two_number_sum_array.append(num1)
-        two_number_sum_array.append(num2)
-        return two_number_sum_array
-
+    nums = {}
+    for num in array:
+        potential_match = targetSum - num
+        if potential_match in nums:
+            return [potential_match, num]
+        else:
+            nums[num] = True
     return []
+
 
 # O(nlog(n)) time | O(1) space
 def twoNumberSum3_nlogn(array, targetSum):
     array.sort()
-    two_number_sum_array = []
-
-    idx1 = 0
-    idx2 = len(array) - 1
-    while idx1 < idx2:
-        num1 = array[idx1]
-        num2 = array[idx2]
+    left = 0
+    right = len(array) - 1
+    while left < right:
+        num1 = array[left]
+        num2 = array[right]
         if num1 + num2 < targetSum:
-            idx1 += 1
+            left += 1
         elif num1 + num2 > targetSum:
-            idx2 -= 1
-        else:
-            two_number_sum_array.append(num1)
-            two_number_sum_array.append(num2)
-            break
-
-    return two_number_sum_array
+            right -= 1
+        elif num1 + num2 == targetSum:
+            return [num1, num2]
+    return []
 
 
 array = [3, 5, -4, 8, 11, 1, -1, 6]
@@ -111,8 +88,8 @@ targetSum = 10
 print("array:", array)
 print("targetSum:", targetSum)
 print("two_number_sum_n_n:", two_number_sum_n_n(array, targetSum))
-print("twoNumberSum:", twoNumberSum_n(array, targetSum))
-print("twoNumberSum:", twoNumberSum3_nlogn(array, targetSum))
+print("twoNumberSum_n:", twoNumberSum_n(array, targetSum))
+print("twoNumberSum3_nlogn:", twoNumberSum3_nlogn(array, targetSum))
 print(" ")
 
 array = [4, 6, 1, -3]
@@ -120,8 +97,8 @@ targetSum = 3
 print("array:", array)
 print("targetSum:", targetSum)
 print("two_number_sum_n_n:", two_number_sum_n_n(array, targetSum))
-print("twoNumberSum:", twoNumberSum_n(array, targetSum))
-print("twoNumberSum:", twoNumberSum3_nlogn(array, targetSum))
+print("twoNumberSum_n:", twoNumberSum_n(array, targetSum))
+print("twoNumberSum3_nlogn:", twoNumberSum3_nlogn(array, targetSum))
 print(" ")
 
 array = [3, 5, -4, 8, 11, 1, -1, 6]
@@ -129,8 +106,8 @@ targetSum = 15
 print("array:", array)
 print("targetSum:", targetSum)
 print("two_number_sum_n_n:", two_number_sum_n_n(array, targetSum))
-print("twoNumberSum:", twoNumberSum_n(array, targetSum))
-print("twoNumberSum:", twoNumberSum3_nlogn(array, targetSum))
+print("twoNumberSum_n:", twoNumberSum_n(array, targetSum))
+print("twoNumberSum3_nlogn:", twoNumberSum3_nlogn(array, targetSum))
 print(" ")
 
 # _recursion

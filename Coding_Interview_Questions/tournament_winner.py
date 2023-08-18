@@ -46,35 +46,40 @@ Input:
 		- Emoji 👍 (especially if question is presented as a text field input by a user)
 		- Long String
 '''
+
 # Time: O(n) | # Space: O(k)
 def tournamentWinner(competitions, results):
-    results_dict = {}
-    winner = 0
+    tournament_winner_wins = 0
+    winners = {}
+    for idx in range(len(results)):
+        winner = get_match_winner(idx, competitions, results)
+        update_winners(winner, winners)
+    return get_tournament_winner(tournament_winner_wins, winners)
 
-    for competition in range(len(competitions)):
-        home_team = competitions[competition][1]
-        away_team = competitions[competition][0]
-        if home_team not in results_dict:
-            results_dict[home_team] = 0
-        if away_team not in results_dict:
-            results_dict[away_team] = 0
+def get_match_winner(idx, competitions, results):
+    print(competitions[idx])
+    if results[idx] == 0:
+        winner = competitions[idx][1]
+    else:
+        winner = competitions[idx][0]
+    return winner
 
-        if results[competition] == 1:
-            results_dict[home_team] += 1
-            if results_dict[home_team] > winner:
-                winner = results_dict[home_team]
-        if results[competition] == 0:
-            results_dict[away_team] += 1
-            if results_dict[away_team] > winner:
-                winner = results_dict[away_team]
+def update_winners(winner, winners):
+    if winner in winners:
+        winners[winner] += 1
+    else:
+        winners[winner] = 1
+    return None
 
-    for team, result in results_dict.items():
-        print("team:", team)
-        print("result:", result)
-        if result == winner:
-            return team
+def get_tournament_winner(tournament_winner_wins, winners):
+    tournament_winner = ''
+    for winner in winners:
+        if winners[winner] > tournament_winner_wins:
+            tournament_winner = winner
+            tournament_winner_wins = winners[winner]
+    return tournament_winner
 
-
+# Test cases
 competitions = [
     ["HTML", "C#"],
     ["C#", "Python"],
@@ -109,7 +114,7 @@ competitions = [
     ["Bulls", "Bears"],
     ["Bears", "Eagles"]
 ]
-results = [0, 1, 1, 1, 0, 1]
+results = [0, 0, 0]
 print("competitions:", competitions)
 print("results:", results)
 print("tournamentWinner:", tournamentWinner(competitions, results))

@@ -43,36 +43,19 @@ Output:
 
 # Time: O(nlog(n) + mlog(m)) | # Space: O(1)
 def smallestDifference(arrayOne, arrayTwo):
+    smallest_difference = float('inf')
     smallest_difference_array = []
     arrayOne.sort()
     arrayTwo.sort()
-    smallest = float('inf')
-    current_difference = float('inf')
-
-    idx1 = 0
-    idx2 = 0
-    idx = 0
-    while idx1 < len(arrayOne) and idx2 < len(arrayTwo):
-        num1 = arrayOne[idx1]
-        num2 = arrayTwo[idx2]
-        idx += 1
-        print("idx:", idx)
-
-        if num1 < num2:
-            current_difference = num2 - num1
-            idx1 += 1
-
-        elif num2 < num1:
-            current_difference = num1 - num2
-            idx2 += 1
+    i, ii = 0, 0
+    while i < len(arrayOne) and ii < len(arrayTwo):
+        if abs(arrayOne[i] - arrayTwo[ii]) < smallest_difference:
+            smallest_difference = abs(arrayOne[i] - arrayTwo[ii])
+            smallest_difference_array = [arrayOne[i], arrayTwo[ii]]
+        if arrayOne[i] < arrayTwo[ii]:
+            i += 1
         else:
-            smallest_difference_array = [num1, num2]
-            return smallest_difference_array
-
-        if current_difference < smallest:
-            smallest = current_difference
-            smallest_difference_array = [num1, num2]
-
+            ii += 1
     return smallest_difference_array
 
 
@@ -95,8 +78,4 @@ print("arrayOne:", arrayOne)
 arrayTwo = [-1441, -124, -25, 1014, 1500, 660, 410, 245, 530]
 print("arrayTwo:", arrayTwo)
 print("smallestDifference:", smallestDifference(arrayOne, arrayTwo))
-print(" ")
-
-# _recursion
-# _iteration
 print(" ")

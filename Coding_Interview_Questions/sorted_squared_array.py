@@ -41,46 +41,36 @@ Input:
 			- Nested or not nested
 
 Observations / Clarifying Questions / Insights:
-- larger sqaure values are on the edges of the given array
+- larger square values are on the edges of the given array
     - and the need to end on the right side of the output array
 -
 
 Output:
-- sorted array of squares of the the orginal array
+- sorted array of squares of the the original array
 '''
 
 # O(nlog(n)) time | O(n) space
 def sorted_squared_array(array):
-    postive_array = []
-    for idx in range(len(array)):
-        num = array[idx]
-        postive_array.append(num * num)
-
-    postive_array.sort()
-    return postive_array
+    squared_array = []
+    for num in array:
+        squared_array += [num * num]
+    squared_array.sort()
+    return squared_array
 
 
 # O(n) time | O(n) space
 def sortedSquaredArray(array):
-    square_array = []
-    for idx in range(len(array)):
-        square_array.append(0)
-
+    squared_array = [0 for _ in array]
     left_idx = 0
     right_idx = len(array) - 1
-
-    for idx in reversed(range(len(square_array))):
-        left_value = abs(array[left_idx])
-        right_value = abs(array[right_idx])
-
-        if left_value > right_value:
-            square_array[idx] = left_value * left_value
+    for idx in reversed(range(len(array))):
+        if abs(array[left_idx]) > abs(array[right_idx]):
+            squared_array[idx] = array[left_idx] * array[left_idx]
             left_idx += 1
         else:
-            square_array[idx] = right_value * right_value
+            squared_array[idx] = array[right_idx] * array[right_idx]
             right_idx -= 1
-
-    return square_array
+    return squared_array
 
 
 array = [1, 2, 3, 5, 6, 8, 9]

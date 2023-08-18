@@ -5,29 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e19de63a-2ec7-44ac-8547-97530ebf82c4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Billing Report - 05_26_23.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CS_7310/Final/final.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TriumphPay/BillingReport2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/.idea/CS_7310.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/.idea/CS_7310.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/.ipynb_checkpoints/A2.thru.ch05-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/.ipynb_checkpoints/A2.thru.ch05-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/.ipynb_checkpoints/A4.RegexFilesExceptions-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/7310.a4/a4q10.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/7310.a4/a4q11.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/7310.a4/a4q12.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/7310.a4/a4q12b.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/7310.a4/a4q12c.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/7310.a4/a4q9.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a4/A4.RegexFilesExceptions.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/7310.a5/A5.ch07.NumpyPandas.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/7310.a5/A5.ch07.NumpyPandas.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/A2.py" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/A2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/A2.thru.ch05.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/A2.thru.ch05.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/A3.thru.ch06.08.dict.sets.strings.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/A3.thru.ch06.08.dict.sets.strings.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/A4.py" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/A4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/A5.py" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/A5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/a1.Bryan.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_7310/first.py" beforeDir="false" afterPath="$PROJECT_DIR$/CS_7310/first.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TriumphPay/BillingReport.py" beforeDir="false" afterPath="$PROJECT_DIR$/TriumphPay/BillingReport.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1689339171153</updated>
       <workItem from="1689339174125" duration="9041000" />
-      <workItem from="1690332639683" duration="927000" />
+      <workItem from="1690332639683" duration="2734000" />
     </task>
     <servers />
   </component>

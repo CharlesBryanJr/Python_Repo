@@ -45,17 +45,14 @@ Output:
 
 # O(n) time | O(1) space
 def isValidSubsequence(array, sequence):
-    sequence_idx = 0
-    for idx in range(len(array)):
-        array_num = array[idx]
-        sequence_num = sequence[sequence_idx]
-        if array_num != sequence_num:
-            continue
-        sequence_idx += 1
-        if sequence_idx == len(sequence):
-            return True
+    seq_idx = 0
+    for num in array:
+        if seq_idx >= len(sequence):
+            break
+        if num == sequence[seq_idx]:
+            seq_idx += 1
+    return seq_idx == len(sequence)
 
-    return False
 
 array = [5, 1, 22, 25, 6, -1, 8, 10]
 sequence = [1, 6, -1, 10]
@@ -65,7 +62,7 @@ print("isValidSubsequence:", isValidSubsequence(array, sequence))
 print(" ")
 
 array = [5, 1, 22, 25, 6, -1, 8, 10]
-sequence = [5, -1, 8, 10]
+sequence = [5, 1, 22, 6, -1, 8, 10]
 print("array:", array)
 print("sequence:", sequence)
 print("isValidSubsequence:", isValidSubsequence(array, sequence))
@@ -76,8 +73,4 @@ sequence = [5, 1, 22, 22, 6, -1, 8, 10]
 print("array:", array)
 print("sequence:", sequence)
 print("isValidSubsequence:", isValidSubsequence(array, sequence))
-print(" ")
-
-# _recursion
-# _iteration
 print(" ")

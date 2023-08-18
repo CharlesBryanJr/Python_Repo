@@ -54,40 +54,7 @@ return:
 
 # Time: O(n) | # Space: O(1)
 def isMonotonic(array):
-    if len(array) <= 1:
-        return True
-
-    non_increasing = is_non_increasing(array)
-    non_decreasing = is_non_decreasing(array)
-
-    if non_increasing or non_decreasing:
-        return True
-
-    return False
-
-
-def is_non_increasing(array):
-
-    for idx in range(1, len(array)):
-        num = array[idx - 1]
-        next_num = array[idx]
-
-        if next_num > num:
-            return False
-
-    return True
-
-
-def is_non_decreasing(array):
-    for idx in range(1, len(array)):
-        num = array[idx - 1]
-        next_num = array[idx]
-
-        if next_num < num:
-            return False
-
-    return True
-
+    return None
 
 array = [-1, -5, -10, -1100, -1100, -1101, -1102, -9001]
 print("array:", array)

@@ -49,45 +49,53 @@ return:
 
 '''
 
+# Time: O(n) | # Space: O(n)
+def move_Element_To_End(array, toMove):
+    other_nums = []
+    for num in array:
+        if num != toMove:
+            other_nums.append(num)
+    for i in range(len(array)):
+        if other_nums:
+            array[i] = other_nums.pop()
+        else:
+            array[i] = toMove
+    return array
+
 # Time: O(n) | # Space: O(1)
 def moveElementToEnd(array, toMove):
-    element_count = 1
-    for idx in reversed(range(len(array))):
-        num = array[idx]
-        if num != toMove:
-            continue
-
-        switch_idx = len(array) - element_count
-        switch_num = array[switch_idx]
-
-        array[switch_idx] = num
-        array[idx] = switch_num
-
-        element_count += 1
+    left = 0
+    right = len(array) - 1
+    while left < right:
+        while left < right and array[right] == toMove:
+            right -= 1
+        if array[left] == toMove:
+            array[left], array[right] = array[right], array[left]
+            right -= 1
+        left += 1
     return array
 
 
 array = [2, 1, 2, 2, 2, 3, 4, 2]
-print("array:", array)
 toMove = 2
+print("array:", array)
 print("toMove:", toMove)
+#print("move_Element_To_End:", move_Element_To_End(array, toMove))
 print("moveElementToEnd:", moveElementToEnd(array, toMove))
 print(" ")
 
 array = [3, 3, 3, 3, 3]
-print("array:", array)
 toMove = 3
+print("array:", array)
 print("toMove:", toMove)
+print("move_Element_To_End:", move_Element_To_End(array, toMove))
 print("moveElementToEnd:", moveElementToEnd(array, toMove))
 print(" ")
 
 array = [5, 5, 5, 5, 5, 5, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12]
-print("array:", array)
 toMove = 5
+print("array:", array)
 print("toMove:", toMove)
+print("move_Element_To_End:", move_Element_To_End(array, toMove))
 print("moveElementToEnd:", moveElementToEnd(array, toMove))
-print(" ")
-
-# _recursion
-# _iteration
 print(" ")
