@@ -102,46 +102,81 @@ Output(int): num
 
 # Time: O(n) | # Space: O(n)
 def firstDuplicateValue_n(array):
-    dictionary = {}
+    nums = {}
     for num in array:
-        if num in dictionary:
+        if num in nums:
             return num
-        dictionary[num] = True
+        nums[num] = True
     return -1
+
+# Time: O(n) | # Space: O(n)
+def first_Duplicate_Value_recursion(array):
+    if len(array) < 2:
+        return -1
+    return find_first_duplicate(1, array[0], -1, array, {})
+
+def find_first_duplicate(i, num, duplicate, array, nums):
+    is_duplicate = num in nums
+    if is_duplicate:
+        duplicate = num
+    end_of_array = i >= len(array)
+    if is_duplicate or end_of_array:
+        return duplicate
+    nums[num] = True
+    return find_first_duplicate(i + 1, array[i], duplicate, array, nums)
 
 # Time: O(n) | # Space: O(1)
 def firstDuplicateValue(array):
-    for value in array:
-        abs_value = abs(value)
-        if array[abs_value - 1] < 0:
+    for num in array:
+        abs_value = abs(num)
+        is_duplicate = array[abs_value - 1] < 0
+        if is_duplicate:
             return abs_value
         array[abs_value - 1] *= -1
     return -1
+
+# Time: O(n) | # Space: O(1)
+def firstDuplicateValue_recursion(array):
+    no_duplicate = -1
+    duplicate = find_duplicate(0, array)
+    if duplicate:
+        return duplicate
+    else:
+        return no_duplicate
+
+
+def find_duplicate(i, array):
+    end_of_array = i >= len(array)
+    if end_of_array:
+        return -1
+    abs_value = abs(array[i])
+    is_duplicate = array[abs_value - 1] < 0
+    if is_duplicate or end_of_array:
+        return abs_value
+    array[abs_value - 1] *= -1
+    return find_duplicate(i + 1, array)
 
 
 array = [2, 1, 5, 2, 3, 3, 4]
 print("array:", array)
 print("firstDuplicateValue_n:", firstDuplicateValue_n(array))
-print("firstDuplicateValue_recursion:", firstDuplicateValue_recursion(array))
+print("first_Duplicate_Value_recursion:", first_Duplicate_Value_recursion(array))
 print("firstDuplicateValue:", firstDuplicateValue(array))
+print("firstDuplicateValue_recursion:", firstDuplicateValue_recursion(array))
 print(" ")
-'''
+
 array = [2, 2, 2, 2, 2, 2, 2, 2, 2]
 print("array:", array)
-print("firstDuplicateValue_nn_1:", firstDuplicateValue_nn_1(array))
-print("firstDuplicateValue_n_n:", firstDuplicateValue_n_n(array))
-print("firstDuplicateValue_n_1:", firstDuplicateValue_n_1(array))
-print("firstDuplicateValue_n_1:", firstDuplicateValue_n_1(array))
+print("firstDuplicateValue_n:", firstDuplicateValue_n(array))
+print("first_Duplicate_Value_recursion:", first_Duplicate_Value_recursion(array))
+print("firstDuplicateValue:", firstDuplicateValue(array))
+print("firstDuplicateValue_recursion:", firstDuplicateValue_recursion(array))
 print(" ")
 
-array = [9, 13, 6, 2, 3, 5, 5, 5, 3, 2, 2, 2, 2, 4, 3]
+array = [4, 7, 7, 14, 14, 10, 15, 14, 14, 16, 14, 11, 5, 12, 17, 7, 1, 6, 13]
 print("array:", array)
-print("firstDuplicateValue_nn_1:", firstDuplicateValue_nn_1(array))
-print("firstDuplicateValue_n_n:", firstDuplicateValue_n_n(array))
-print("firstDuplicateValue_n_1:", firstDuplicateValue_n_1(array))
+print("firstDuplicateValue_n:", firstDuplicateValue_n(array))
+print("first_Duplicate_Value_recursion:", first_Duplicate_Value_recursion(array))
+print("firstDuplicateValue:", firstDuplicateValue(array))
+print("firstDuplicateValue_recursion:", firstDuplicateValue_recursion(array))
 print(" ")
-
-# _recursion
-# _iteration
-print(" ")
-'''

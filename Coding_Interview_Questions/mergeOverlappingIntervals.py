@@ -135,61 +135,34 @@ Output(array): overlapping_intervals
 
 # Time: O(nlog(n)) | # Space: O(n)
 def merge_overlapping_intervals(intervals):
-    intervals = sorted(intervals, key=lambda x: x[0])
-    overlapping_intervals = []
-
-    current_interval_start = intervals[0][0]
-    current_interval_end = intervals[0][1]
-
-    for idx in range(len(intervals)):
-        interval_start = intervals[idx][0]
-        interval_end = intervals[idx][1]
-
-        if current_interval_end >= interval_start:
-            if current_interval_end < interval_end:
-                current_interval_end = interval_end
+    intervals.sort(key=lambda x: x[0])
+    result = [intervals[0]]
+    for interval in intervals:
+        overlapping_interval = interval[0] <= result[-1][1]
+        if overlapping_interval:
+            result[-1][1] = max(result[-1][1], interval[1])
         else:
-            current_interval = [current_interval_start, current_interval_end]
-            overlapping_intervals.append(current_interval)
-            current_interval_start = interval_start
-            current_interval_end = interval_end
-
-    if len(overlapping_intervals) == 0:
-        current_interval = [current_interval_start, current_interval_end]
-        overlapping_intervals.append(current_interval)
-
-    if intervals[-1][1] != overlapping_intervals[-1][1]:
-        last_interval = [current_interval_start, current_interval_end]
-        if last_interval != overlapping_intervals[-1]:
-            overlapping_intervals.append(last_interval)
-
-    return overlapping_intervals
+            result.append(interval)
+    return result
 
 
 # Time: O(nlog(n)) | # Space: O(n)
-def mergeOverlappingIntervals(intervals):
-    intervals = sorted(intervals, key=lambda x: x[0])
-    overlapping_intervals = []
+def mergeOverlappingIntervals_recursive(intervals):
+    intervals.sort(key=lambda x: x[0])
+    return update_intervals(1, intervals, [intervals[0]])
 
-    current_interval = intervals[0]
-    overlapping_intervals.append(current_interval)
+def update_intervals(i, intervals, overlapping_intervals):
+    end_of_array = i >= len(intervals)
+    if end_of_array:
+        return overlapping_intervals
 
-    for idx in range(len(intervals)):
-        interval = intervals[idx]
-        current_interval_start = current_interval[0]
-        current_interval_end = current_interval[1]
+    overlapping_interval = intervals[i][0] <= overlapping_intervals[-1][1]
+    if overlapping_interval:
+        overlapping_intervals[-1][1] = max(overlapping_intervals[-1][1], intervals[i][1])
+    else:
+        overlapping_intervals.append(intervals[i])
 
-        interval_start = interval[0]
-        interval_end = interval[1]
-
-        if current_interval_end >= interval_start:
-            if current_interval_end < interval_end:
-                current_interval[1] = interval_end
-        else:
-            overlapping_intervals.append(interval)
-            current_interval = interval
-
-    return overlapping_intervals
+    return update_intervals(i + 1, intervals, overlapping_intervals)
 
 
 intervals = [[1, 2],
@@ -199,7 +172,7 @@ intervals = [[1, 2],
              [9, 10]]
 print("intervals:", intervals)
 print("merge_overlapping_intervals", merge_overlapping_intervals(intervals))
-print("mergeOverlappingIntervals:", mergeOverlappingIntervals(intervals))
+print("mergeOverlappingIntervals_recursive:", mergeOverlappingIntervals_recursive(intervals))
 print(" ")
 
 intervals = [[0, 0],
@@ -211,7 +184,7 @@ intervals = [[0, 0],
              [0, 1]]
 print("intervals:", intervals)
 print("merge_overlapping_intervals", merge_overlapping_intervals(intervals))
-print("mergeOverlappingIntervals:", mergeOverlappingIntervals(intervals))
+print("mergeOverlappingIntervals_recursive:", mergeOverlappingIntervals_recursive(intervals))
 print(" ")
 
 intervals = [
@@ -224,7 +197,7 @@ intervals = [
 ]
 print("intervals:", intervals)
 print("merge_overlapping_intervals", merge_overlapping_intervals(intervals))
-print("mergeOverlappingIntervals:", mergeOverlappingIntervals(intervals))
+print("mergeOverlappingIntervals_recursive:", mergeOverlappingIntervals_recursive(intervals))
 print(" ")
 
 intervals = [
@@ -233,5 +206,5 @@ intervals = [
 ]
 print("intervals:", intervals)
 print("merge_overlapping_intervals", merge_overlapping_intervals(intervals))
-print("mergeOverlappingIntervals:", mergeOverlappingIntervals(intervals))
+print("mergeOverlappingIntervals_recursive:", mergeOverlappingIntervals_recursive(intervals))
 print(" ")

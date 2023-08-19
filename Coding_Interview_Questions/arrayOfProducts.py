@@ -75,68 +75,57 @@ Output(array): array_of_products
 
 # Time: O(n^2) | # Space: O(n)
 def array_of_products_n_n(array):
-    array_of_products = []
-    for i in range(len(array)):
+    array_of_products = [_ for _ in range(len(array))]
+    i = 0
+    while i < len(array):
+        ii = 0
         product = 1
-        for ii in range(len(array)):
-            if i == ii:
-                continue
-            num = array[ii]
-            product *= num
-
-        array_of_products.append(product)
-
+        while ii < len(array):
+            if ii != i:
+                product *= array[ii]
+            ii += 1
+        array_of_products[i] = product
+        i += 1
     return array_of_products
 
 # Time: O(n) | # Space: O(n)
 def arrayOfProducts_n(array):
-    array_of_products = []
+    array_of_products = [1 for _ in range(len(array))]
+    left_array = [1 for _ in range(len(array))]
+    right_array = [1 for _ in range(len(array))]
 
-    product = 1
-    zero_count = 0
-    for idx in range(len(array)):
-        num = array[idx]
-        if num == 0:
-            zero_count += 1
-            continue
-        product *= num
+    right_product = 1
+    for i in range(len(array)):
+        right_array[i] = right_product
+        right_product *= array[i]
 
-    if zero_count == 1:
-        for idx in range(len(array)):
-            num = array[idx]
-            if num == 0:
-                array_of_products.append(product)
-                continue
-            array_of_products.append(0)
-        return array_of_products
+    left_product = 1
+    for i in reversed(range(len(array))):
+        left_array[i] = left_product
+        left_product *= array[i]
 
-    if zero_count > 1:
-        for idx in range(len(array)):
-            array_of_products.append(0)
-        return array_of_products
-
-    for idx in range(len(array)):
-        num = array[idx]
-        array_of_products.append(product // num)
+    for i in range(len(array)):
+        array_of_products[i] = left_array[i] * right_array[i]
 
     return array_of_products
 
 
 # Time: O(n) | # Space: O(n)
 def arrayOfProducts_iteration(array):
-    array_of_products = [1] * len(array)
+    array_of_products = [1 for _ in range(len(array))]
 
-    left_running_product = 1
-    for idx in range(len(array)):
-        array_of_products[idx] = left_running_product
-        left_running_product *= array[idx]
+    product = 1
+    for i in range(len(array)):
+        array_of_products[i] = product
+        product *= array[i]
 
-    right_running_product = 1
-    for idx in reversed(range(len(array))):
-        array_of_products[idx] *= right_running_product
-        right_running_product *= array[idx]
+    product = 1
+    for i in reversed(range(len(array))):
+        array_of_products[i] *= product
+        product *= array[i]
 
     return array_of_products
+
 
 '''
 # Time: O(n) | # Space: O(n)
@@ -169,13 +158,24 @@ Output(array): array_of_products
 
 # Time: O(n) | # Space: O(n)
 def arrayOfProducts_recursion(array):
-    array_of_products = [None] * len(array)
-
-    index = 1
-    left_products = array[0]
-    array_of_products[0] = products(array, index, array_of_products, left_products)
-
+    array_of_products = [1 for _ in range(len(array))]
+    get_right_products(0, 1, array, array_of_products)
+    get_left_products(len(array) - 1, 1, array, array_of_products)
     return array_of_products
+
+def get_right_products(i, product, array, array_of_products):
+    if i >= len(array):
+        return
+    array_of_products[i] *= product
+    product *= array[i]
+    return get_right_products(i + 1, product, array, array_of_products)
+
+def get_left_products(i, product, array, array_of_products):
+    if i < 0:
+        return
+    array_of_products[i] *= product
+    product *= array[i]
+    return get_left_products(i - 1, product, array, array_of_products)
 
 
 '''
@@ -197,23 +197,6 @@ Output(int): right_products
 - array[index] * right_products
 - ea
 '''
-
-def products(array, index, array_of_products, left_products):
-    if index >= len(array):
-        return 1
-
-    array_of_products[index] = left_products
-
-    next_idx = index + 1
-    updated_left_products = left_products * array[index]
-
-    right_products = products(array, next_idx, array_of_products, updated_left_products)
-
-    array_of_products[index] *= right_products
-
-    updated_right_products = array[index] * right_products
-
-    return updated_right_products
 
 array = [5, 1, 4, 2]
 print("array:", array)
