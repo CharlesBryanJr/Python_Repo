@@ -74,34 +74,46 @@ Output(boolean):
 
 
 # Time: O(n) | # Space: O(n)
-def zeroSumSubarray(nums):
-    running_sum_dict = {0: True}
-
+def zeroSumSubarray_iteration(nums):
+    running_sums = set([0])
     running_sum = 0
     for num in nums:
         running_sum += num
-        if running_sum in running_sum_dict:
+        if running_sum in running_sums:
             return True
-        running_sum_dict[running_sum] = True
-
+        running_sums.add(running_sum)
     return False
+
+
+def zeroSumSubarray_recursion(nums):
+    return isZeroSumSubarray(0, 0, set([0]), nums)
+
+
+def isZeroSumSubarray(i, running_sum, running_sums, nums):
+    out_of_range = i >= len(nums)
+    if out_of_range:
+        return False
+    running_sum += nums[i]
+    if running_sum in running_sums:
+        return True
+    running_sums.add(running_sum)
+    return isZeroSumSubarray(i + 1, running_sum, running_sums, nums)
 
 
 nums = [1, 2, -2, 3]
 print("nums:", nums)
-print("zeroSumSubarray:", zeroSumSubarray(nums))
+print("zeroSumSubarray_iteration:", zeroSumSubarray_iteration(nums))
+print("zeroSumSubarray_recursion:", zeroSumSubarray_recursion(nums))
 print(" ")
 
 nums = [-1, 2, 3, 4, -5, -3, 1, 2]
 print("nums:", nums)
-print("zeroSumSubarray:", zeroSumSubarray(nums))
+print("zeroSumSubarray_iteration:", zeroSumSubarray_iteration(nums))
+print("zeroSumSubarray_recursion:", zeroSumSubarray_recursion(nums))
 print(" ")
 
 nums = [1, 2, 3, 4, 0, 5, 6, 7]
 print("nums:", nums)
-print("zeroSumSubarray:", zeroSumSubarray(nums))
-print(" ")
-
-# _recursion
-# _iteration
+print("zeroSumSubarray_iteration:", zeroSumSubarray_iteration(nums))
+print("zeroSumSubarray_recursion:", zeroSumSubarray_recursion(nums))
 print(" ")
