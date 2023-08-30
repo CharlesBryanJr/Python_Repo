@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="28ab4fdc-713f-4c4f-8552-acf044bdeeab" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeroSumSubarray.py" beforeDir="false" afterPath="$PROJECT_DIR$/zeroSumSubarray.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nth_fibonacci.py" beforeDir="false" afterPath="$PROJECT_DIR$/nth_fibonacci.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +55,9 @@
       <updated>1692212766618</updated>
       <workItem from="1692212768142" duration="6161000" />
       <workItem from="1692394958812" duration="23763000" />
-      <workItem from="1692530648869" duration="21486000" />
+      <workItem from="1692530648869" duration="42130000" />
+      <workItem from="1693428480733" duration="88000" />
+      <workItem from="1693430310440" duration="2215000" />
     </task>
     <servers />
   </component>
@@ -84,7 +86,11 @@
     <SUITE FILE_PATH="coverage/Coding_Interview_Questions$missingNumbers.coverage" NAME="missingNumbers Coverage Results" MODIFIED="1692565437358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Coding_Interview_Questions$tournament_winner.coverage" NAME="tournament_winner Coverage Results" MODIFIED="1692357016544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Coding_Interview_Questions$spiral_traverse.coverage" NAME="spiral_traverse Coverage Results" MODIFIED="1692393032080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Coding_Interview_Questions$merge_sort.coverage" NAME="merge_sort Coverage Results" MODIFIED="1693420922043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Coding_Interview_Questions$three_number_sum.coverage" NAME="three_number_sum Coverage Results" MODIFIED="1692220282820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Coding_Interview_Questions$Hanoi.coverage" NAME="Hanoi Coverage Results" MODIFIED="1693428348190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Coding_Interview_Questions$quick_sort.coverage" NAME="quick_sort Coverage Results" MODIFIED="1693432488126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Coding_Interview_Questions$nth_fibonacci.coverage" NAME="nth_fibonacci Coverage Results" MODIFIED="1692968602362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Coding_Interview_Questions$transposeMatrix.coverage" NAME="transposeMatrix Coverage Results" MODIFIED="1692218973422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Coding_Interview_Questions$smallest_difference.coverage" NAME="smallest_difference Coverage Results" MODIFIED="1692359271235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Coding_Interview_Questions$zeroSumSubarray.coverage" NAME="zeroSumSubarray Coverage Results" MODIFIED="1692542872405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -98,6 +104,7 @@
     <SUITE FILE_PATH="coverage/Coding_Interview_Questions$move_element_to_end.coverage" NAME="move_element_to_end Coverage Results" MODIFIED="1692363695920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Coding_Interview_Questions$non_constructible_change.coverage" NAME="non_constructible_change Coverage Results" MODIFIED="1692218883712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Coding_Interview_Questions$best_seat.coverage" NAME="best_seat Coverage Results" MODIFIED="1692541090100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Coding_Interview_Questions$pleasant_multiply.coverage" NAME="pleasant_multiply Coverage Results" MODIFIED="1693424603022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Coding_Interview_Questions$longestPeak.coverage" NAME="longestPeak Coverage Results" MODIFIED="1692403258305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Coding_Interview_Questions$firstDuplicateValue.coverage" NAME="firstDuplicateValue Coverage Results" MODIFIED="1692458853522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

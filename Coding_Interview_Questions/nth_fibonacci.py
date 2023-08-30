@@ -1,4 +1,4 @@
-'''file_name'''
+'''nth_fib'''
 # pylint: disable=E1101
 # pylint: disable=C0103
 # pylint: disable=E1101
@@ -13,63 +13,68 @@ print(" ")
 # F(2) = 1
 # given n, return the nth Fibonacci number
 
-# Time: O(2^n) | # Space: O(n)
-
-
-def getNthFib(n):
-    print(F"F({n})")
-    if n == 1:
-        return 0
-    elif n == 2:
-        return 1
-    else:
-        a = getNthFib(n-1) + getNthFib(n-2)
-        print(F"F({n}) = {a}")
-        print(" ")
-        return a
-
 
 # Time: O(n) | # Space: O(n)
-def getNthFib1(n, memoize={1: 0, 2: 1}):
-    print(F"F({n})")
+def getNthFib_n_n(n):
+    fib_sequence = [0, 1]
+    if n in fib_sequence:
+        return 0
+    for i in range(2, n):
+        new_fib_num = fib_sequence[-1] + fib_sequence[-2]
+        fib_sequence.append(new_fib_num)
+    return fib_sequence[-1]
 
-    if n in memoize:
-        return memoize[n]
+# Time: O(n) | # Space: O(n)
+def getNthFib_n_n_recursion(n):
+    fib_sequence = [0, 1]
+    if n in fib_sequence:
+        return 0
+    return get_nth_fib_n_n(2, n, fib_sequence)
 
-    else:
-        memoize[n] = getNthFib1(n-1, memoize) + getNthFib1(n-2, memoize)
-        print(F"F({n}) = {memoize}")
-        print(" ")
 
-        return memoize[n]
+def get_nth_fib_n_n(i, n, fib_sequence):
+    out_of_range = i >= n
+    if out_of_range:
+        return fib_sequence[-1]
+    new_fib_num = fib_sequence[-1] + fib_sequence[-2]
+    fib_sequence.append(new_fib_num)
+    return get_nth_fib_n_n(i + 1, n, fib_sequence)
 
 
 # Time: O(n) | # Space: O(1)
-def getNthFib2(n):
-    print(F"F({n})")
-    base_case = [0, 1]
-    counter = 3
+def getNthFib_n_1(n):
+    fib_sequence = [0, 1]
+    if n in fib_sequence:
+        return 0
+    for i in range(2, n):
+        new_fib_num = fib_sequence[-1] + fib_sequence[-2]
+        fib_sequence[-2] = fib_sequence[-1]
+        fib_sequence[-1] = new_fib_num
+    return fib_sequence[-1]
 
-    while counter <= n:
-        next_fib = base_case[0] + base_case[1]
-        base_case[0] = base_case[1]
-        base_case[1] = next_fib
-        counter += 1
-        print(F"F({n}) = {base_case}")
-        print(" ")
+def getNthFib_n_1_recursion(n):
+    fib_sequence = [0, 1]
+    if n in fib_sequence:
+        return 0
+    return get_nth_fib_n_1(2, n, fib_sequence)
 
-    return base_case[1] if n > 1 else base_case[0]
+def get_nth_fib_n_1(i, n, fib_sequence):
+    out_of_range = i >= n
+    if out_of_range:
+        return fib_sequence[-1]
+    new_fib_num = fib_sequence[-1] + fib_sequence[-2]
+    fib_sequence[-2] = fib_sequence[-1]
+    fib_sequence[-1] = new_fib_num
+    return get_nth_fib_n_1(i + 1, n, fib_sequence)
 
 
 n = 6
-memoize = {1: 0, 2: 1}
 print(" ")
+print("Time: O(n) | # Space: O(n): ", getNthFib_n_n(n))
 print(" ")
-print("Time: O(2^n) | # Space: O(n): ", getNthFib(n))
+print("Time: O(n) | # Space: O(n): ", getNthFib_n_n_recursion(n))
 print(" ")
+print("# Time: O(n) | # Space: O(1): ", getNthFib_n_1(n))
 print(" ")
-print("# Time: O(n) | # Space: O(n): ", getNthFib1(n, memoize))
-print(" ")
-print(" ")
-print("# Time: O(n) | # Space: O(1): ", getNthFib2(n))
+print("# Time: O(n) | # Space: O(1): ", getNthFib_n_1_recursion(n))
 print(" ")
