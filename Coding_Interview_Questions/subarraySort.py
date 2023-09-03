@@ -130,129 +130,53 @@ Iterate through the entire array, starting at 0
 
 
 Output(array): array
-# starting and ending indices of the smallest subarray that needs to be sorted in place
-# so that the entire input array would be sorted
+# starting and ending indices of the smallest subarray
+that needs to be sorted in place
+so that the entire input array would be sorted
 '''
 
+# find all the unsorted numbers
+# find the smallest and largest unsorted numbers
+# find the sorted index for the smallest and largest unsorted numbers
 
 # Time: O(n) | # Space: O(1)
 def subarraySort(array):
-    if is_sorted(array) is True:
+    min_unsorted = float('inf')
+    max_unsorted = float('-inf')
+    for i in range(len(array)):
+        num = array[i]
+        if is_unsorted(i, num, array):
+            min_unsorted = min(num, min_unsorted)
+            max_unsorted = max(num, max_unsorted)
+
+    if min_unsorted == float('inf') and max_unsorted == float('-inf'):
         return [-1, -1]
 
-    sub_array_sort = []
-    min_value = float("inf")
-    max_value = float("-inf")
+    min_sorted_idx = 0
+    while array[min_sorted_idx] <= min_unsorted:
+        min_sorted_idx += 1
 
-    for idx in range(1, len(array) - 1):
-        last_num = array[idx - 1]
-        num = array[idx]
-        next_num = array[idx + 1]
+    max_sorted_idx = len(array) - 1
+    while array[max_sorted_idx] >= max_unsorted:
+        max_sorted_idx -= 1
 
-        if num >= last_num and num <= next_num:
-            continue
-
-        if num < min_value:
-            min_value = num
-        if num > max_value:
-            max_value = num
-
-    for idx in range(len(array)):
-        num = array[idx]
-        if num > min_value:
-            sub_array_sort.append(idx)
-            break
-
-    for idx in reversed(range(len(array))):
-        num = array[idx]
-        if num < max_value:
-            sub_array_sort.append(idx)
-            break
-
-    return sub_array_sort
-
-def is_sorted(array):
-    last_num = array[0]
-    idx = 1
-    while idx < len(array):
-        num = array[idx]
-        if num < last_num:
-            return False
-        last_num = num
-        idx += 1
-    return True
+    return [min_sorted_idx, max_sorted_idx]
 
 
-# Time: O(n) | # Space: O(1)
-def sub_array_sort_iteration(array):
-    start = -1
-    end = -1
+def is_unsorted(i, num, array):
+    if i == 0:
+        return num > array[i + 1]
+    if i == len(array) - 1:
+        return num < array[i - 1]
+    return num > array[i + 1] or num < array[i - 1]
 
-    max_value = array[0]
-    for idx in range(len(array)):
-        num = array[idx]
-        if num >= max_value:
-            max_value = num
-        else:
-            end = idx
-
-    min_value = array[len(array) - 1]
-    for idx in reversed(range(len(array))):
-        num = array[idx]
-        if num <= min_value:
-            min_value = num
-        else:
-            start = idx
-
-    return [start, end]
-
-# Time: O(n) | # Space: O(1)
-def sub_array_sort_recursion(array):
-    start = -1
-    end = -1
-
-    min_value = array[len(array) - 1]
-    max_value = array[0]
-
-    idx = len(array) - 1
-    start = sub_array_sort_start(idx, start, min_value, array)
-
-    idx = 0
-    end = sub_array_sort_end(idx, end, max_value, array)
-
-    return [start, end]
-
-
-def sub_array_sort_start(idx, start, min_value, array):
-    if idx <= 0:
-        return start
-
-    num = array[idx]
-
-    if num <= min_value:
-        min_value = num
-    else:
-        start = idx
-
-    return sub_array_sort_start(idx - 1, start, min_value, array)
-
-
-def sub_array_sort_end(idx, end, max_value, array):
-    if idx >= len(array):
-        return end
-
-    num = array[idx]
-
-    if num >= max_value:
-        max_value = num
-    else:
-        end = idx
-
-    return sub_array_sort_end(idx + 1, end, max_value, array)
+# _recursion
+# _iteration
 
 array = [1, 2, 4, 7, 10, 11, 7, 12, 6, 7, 16, 18, 19]
 print("array:", array)
 print("subarraySort:", subarraySort(array))
+'''
 print("sub_array_sort:", sub_array_sort_iteration(array))
 print(" ")
 
@@ -267,7 +191,4 @@ print("array:", array)
 print("subarraySort:", subarraySort(array))
 print("sub_array_sort:", sub_array_sort_iteration(array))
 print(" ")
-
-# _recursion
-# _iteration
-print(" ")
+'''

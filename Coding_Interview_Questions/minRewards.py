@@ -803,6 +803,7 @@ def expand_left(idx, scores, rewards):
             rewards[idx] = rewards[idx + 1] + 1
     expand_left(idx - 1, scores, rewards)
 
+
 scores = [8, 4, 2, 1, 3, 6, 7, 9, 5]
 print("scores:", scores)
 print("minRewards_n_n:", minRewards_n_n(scores))
@@ -811,7 +812,7 @@ print("minRewards_n_recursion:", minRewards_n_recursion(scores))
 print("minRewards_iteration:", minRewards_iteration(scores))
 print("minRewards_recursion:", minRewards_recursion(scores))
 print(" ")
-'''
+
 scores = [0, 4, 2, 1, 3]
 print("scores:", scores)
 print("minRewards_n_n:", minRewards_n_n(scores))
@@ -829,8 +830,3 @@ print("minRewards_n_iteration:", minRewards_n_iteration(scores))
 print("minRewards_iteration:", minRewards_iteration(scores))
 print("minRewards_recursion:", minRewards_recursion(scores))
 print(" ")
-
-# _recursion
-# _iteration
-print(" ")
-'''

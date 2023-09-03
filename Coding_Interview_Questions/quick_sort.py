@@ -27,47 +27,53 @@ note:
 -
 '''
 
-# Time: O(nlog(n)) | # Space: O(nlog(n))
+# Time: O(n^2) | # Space: O(log(n))
 def quickSort(array):
-    base_case = (len(array) == 1)
-    if base_case:
-        return 1
-
-    i = 0
-    in_range = i < len(array)
-    while in_range:
-        left = i + 1
-        right = len(array) - 1
-        while right >= left:
-            left_num_greater_than_pivot = array[left] > array[i]
-            left_num_less_than_pivot = array[left] < array[i]
-            right_num_less_than_pivot = array[right] < array[i]
-            right_num_greater_than_pivot = array[right] > array[i]
-
-            if left_num_greater_than_pivot and right_num_less_than_pivot:
-                array[left], array[right] = array[right], array[left]
-            elif left_num_less_than_pivot and right_num_greater_than_pivot:
-                left += 1
-                right -= 1
-            elif left_num_less_than_pivot:
-                left += 1
-            elif right_num_greater_than_pivot:
-                right -= 1
-        array[i], array[right] = array[right], array[i]
-        i += 1
-        in_range = i < len(array)
-
+    quick_sort(0, len(array) - 1, array)
     return array
 
+def quick_sort(start, end, array):
+    if start >= end:
+        return
+
+    pivot = start
+    left = pivot + 1
+    right = end
+
+    while left <= right:
+        if array[left] > array[pivot] and array[right] < array[pivot]:
+            swap(left, right, array)
+
+        if array[left] <= array[pivot]:
+            left += 1
+        elif array[right] >= array[pivot]:
+            right -= 1
+
+    swap(pivot, right, array)
+
+    is_left_subarray_smaller = right - 1 - start < end - (right + 1)
+    if is_left_subarray_smaller:
+        quick_sort(start, right - 1, array)
+        quick_sort(right + 1, end, array)
+    else:
+        quick_sort(right + 1, end, array)
+        quick_sort(start, right - 1, array)
+
+    return
+
+
+def swap(i, ii, array):
+    array[i], array[ii] = array[ii], array[i]
+    return
 
 array = [8, 5, 2, 9, 5, 6, 3]
 print("array:", array)
-array = [8, 5, 2, 9, 5, 6, 3]
 print("quickSort:", quickSort(array))
+'''
 array = [8, 5, 2, 9, 5, 6, 3]
 print("quickSort:", quickSort(array))
 print(" ")
-'''
+
 array = [5, -2, 2, -8, 3, -10, -6, -1, 2, -2, 9, 1, 1]
 print("array:", array)
 print("mergeSort:", quickSort(array))

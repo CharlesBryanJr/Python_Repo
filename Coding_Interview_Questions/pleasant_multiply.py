@@ -17,7 +17,6 @@ given two postive integers, multiply them and return the result
 
 Peasant Multiply
 
-
 - Why: A proof that the algorithm solves the problem it is supposed to solve.
 
 - How fast: An analysis of the running time of the algorithm.

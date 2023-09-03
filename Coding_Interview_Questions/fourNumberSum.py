@@ -167,56 +167,91 @@ Output(array): four_number_sum_array
 '''
 
 # Time: O(n^2) | # Space: O(n^2)
-def fourNumberSum(array, targetSum):
+def fourNumberSum_iteration(array, targetSum):
     four_number_sum_array = []
-    pair_sums_dict = {}
-
-    for i in range(len(array)):
-        num = array[i]
+    pair_sums = {}
+    for i in range(1, len(array)):
         for ii in range(i + 1, len(array)):
-            right_num = array[ii]
-            right_sum = num + right_num
-            complementary_sum = targetSum - right_sum
-
-            if complementary_sum in pair_sums_dict:
-                for pair in pair_sums_dict[complementary_sum]:
-                    quadruplet = pair + [num, right_num]
-                    four_number_sum_array.append(quadruplet)
-
-        for iii in reversed(range(0, i)):
-            left_num = array[iii]
-            left_sum = num + left_num
-
-            if left_sum not in pair_sums_dict:
-                pair_sums_dict[left_sum] = [[num, left_num]]
+            currentSum = array[i] + array[ii]
+            diff = targetSum - currentSum
+            if diff in pair_sums:
+                for pair in pair_sums[diff]:
+                    four_number_sum = [pair[0], pair[1], array[i], array[ii]]
+                    four_number_sum_array.append(four_number_sum)
+        for iii in range(0, i):
+            currentSum = array[i] + array[iii]
+            pair = [array[i], array[iii]]
+            if currentSum not in pair_sums:
+                pair_sums[currentSum] = [pair]
             else:
-                pair_sums_dict[left_sum].append([num, left_num])
+                pair_sums[currentSum].append(pair)
 
     return four_number_sum_array
+
+
+# _recursion
+# _iteration
+def fourNumberSum_recursion(array, targetSum):
+    return get_four_number_sum(1, targetSum, array, {}, [])
+
+def get_four_number_sum(mid, targetSum, array, pair_sums, four_number_sum_array):
+    if mid >= len(array) - 1:
+        return four_number_sum_array
+
+    is_four_number_sum(mid, mid + 1, targetSum, array, pair_sums, four_number_sum_array)
+    add_pair(0, mid, targetSum, array, pair_sums, four_number_sum_array)
+
+    return get_four_number_sum(mid + 1, targetSum, array, pair_sums, four_number_sum_array)
+
+def is_four_number_sum(mid, right, targetSum, array, pair_sums, four_number_sum_array):
+    if right >= len(array):
+        return
+
+    currentSum = array[mid] + array[right]
+    diff = targetSum - currentSum
+    if diff in pair_sums:
+        for pair in pair_sums[diff]:
+            four_number_sum = [pair[0], pair[1], array[mid], array[right]]
+            four_number_sum_array.append(four_number_sum)
+
+    return is_four_number_sum(mid, right + 1, targetSum, array, pair_sums, four_number_sum_array)
+
+def add_pair(left, mid, targetSum, array, pair_sums, four_number_sum_array):
+    if left >= mid:
+        return
+
+    currentSum = array[left] + array[mid]
+    pair = [array[left], array[mid]]
+    if currentSum in pair_sums:
+        pair_sums[currentSum].append(pair)
+    else:
+        pair_sums[currentSum] = [pair]
+
+    return add_pair(left + 1, mid, targetSum, array, pair_sums, four_number_sum_array)
 
 
 array = [7, 6, 4, -1, 1, 2]
 targetSum = 16
 print("array:", array)
 print("targetSum:", targetSum)
-print("fourNumberSum:", fourNumberSum(array, targetSum))
+print("fourNumberSum_iteration:", fourNumberSum_iteration(array, targetSum))
+print("fourNumberSum_recursion:", fourNumberSum_recursion(array, targetSum))
 print(" ")
-'''
+
 array = [5, -5, -2, 2, 3, -3]
 targetSum = 0
 print("array:", array)
 print("targetSum:", targetSum)
-print("fourNumberSum:", fourNumberSum(array,targetSum))
+print("fourNumberSum_iteration:", fourNumberSum_iteration(array, targetSum))
+print("fourNumberSum_recursion:", fourNumberSum_recursion(array, targetSum))
 print(" ")
+
 
 array = [1, 2, 3, 4, 5, -5, 6, -6]
 targetSum = 5
 print("array:", array)
 print("targetSum:", targetSum)
-print("fourNumberSum:", fourNumberSum(array,targetSum))
+print("fourNumberSum_iteration:", fourNumberSum_iteration(array, targetSum))
+print("fourNumberSum_recursion:", fourNumberSum_recursion(array, targetSum))
 print(" ")
 
-# _recursion
-# _iteration
-print(" ")
-'''
