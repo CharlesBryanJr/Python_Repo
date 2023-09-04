@@ -11,7 +11,6 @@
 print(" ")
 
 '''
-
 Type of Question:
 - Array
 	- draw indices
@@ -31,9 +30,6 @@ Type of Question:
 	# Understand how to avoid duplicates
     # only add a key & value to a dictionary
     # at the last occurence/opportunity to create the key & value
-    # or
-    # add to a key's values in a dictionary
-    # at the last occurence/opportunity to add to the key's values
 
 Input():
 # Intuitive
@@ -51,7 +47,7 @@ Input():
 			# Collisions
 
 Output(int): idx
-# index which represent the best aparment location
+# index which represent the best apartment location
 '''
 
 
@@ -427,18 +423,3 @@ print("apartment_hunting_n_n:", apartment_hunting_n_n(blocks, reqs))
 print("apartment_hunting:", apartment_hunting(blocks, reqs))
 print("apartmentHunting:", apartmentHunting(blocks, reqs))
 print(" ")
-'''
-array = [1, 1, 1, 1]
-print("array:", array)
-print("arrayOfProducts:", arrayOfProducts(array))
-print(" ")
-
-array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-print("array:", array)
-print("arrayOfProducts:", arrayOfProducts(array))
-print(" ")
-
-# _recursion
-# _iteration
-print(" ")
-'''
